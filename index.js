@@ -16,6 +16,17 @@ app.get('/news-categories', (req, res) => {
     res.send(categories)
 });
 
+app.get('/category/:id', (req, res) => {
+    const id = req.params.id;
+    if (id === '8'){
+        res.send(news);
+    }
+    else{
+        const category_news = news.filter ( n => n.category_id === id);
+        res.send(category_news);
+    }
+})
+
 app.get('/news/:id', (req, res) => {
     const id = req.params.id;
     const selectedNews = news.find( n => n._id === id);
