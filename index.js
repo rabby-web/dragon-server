@@ -16,8 +16,8 @@ app.get('/news-categories', (req, res) => {
     res.send(categories)
 });
 
-app.get('/news', (req, res) => {
-    // console.log(req.params);
+app.get('/news/:id', (req, res) => {
+    console.log(req.params);
     res.send(news)
 })
 
