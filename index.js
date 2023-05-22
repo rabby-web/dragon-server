@@ -17,8 +17,12 @@ app.get('/news-categories', (req, res) => {
 });
 
 app.get('/news/:id', (req, res) => {
-    console.log(req.params);
-    res.send(news)
+    const id = req.params.id;
+    const selectedNews = news.find( n => n._id === id);
+    res.send(selectedNews);
+
+    // console.log(req.params.id);
+    // res.send(news)
 })
 
 app.listen(port, () => {
